@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - name: show an array
+      command:
+        echo ${item} 
+      with_items:
+        ${domains}
+    - name: ensure vhost log folder and create log folder
+      file:
+        dest=/var/log/nginx/${item}
+        owner=root
+        group=root
+        state=directory
+      with_items:
+        ${domains}

@@ -1,0 +1,36 @@
+[srv-nc-jasontest1]
+localhost
+
+[srv-nc-jasontest1:vars]
+nginx_size=5120
+nginx_root=www
+vgname=domuvg
+lvname=www
+devname=/dev/domuvg/www
+fstype=ext4
+zabbix=zabbix
+domain1=test.com
+domain2=test2.com
+worker_count=4
+worker_connections=2048
+expire_values=30d
+gzip_compression="on"
+keepalive_timeout=60
+
+max_execution_time=30
+max_input_time=60
+memory_limit=32M
+safe_mode_gid="Off"
+post_max_size=8M
+upload_max_filesize=2M
+save_handler=files
+process_user=nginx
+process_group=nginx
+pm_style=static
+max_children=8
+max_requests=4000
+request_slowlog_timeout=5s
+
+test=['val1', 'val2']
+
+test2=[{'name': 'domain1', 'root': 'some path'}, {'name': 'domain2', 'root': 'some path2'}]
